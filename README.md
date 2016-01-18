@@ -5,7 +5,7 @@ Let's practice using `map`, `filter`, and `reduce`!
 #### Setup
 
 1. Install [mocha](https://mochajs.org/): `npm install -g mocha`
-1. To run all the tests, make sure you're in this folder and then run: `mocha --recursive .`
+1. To run all the tests: `mocha .`
 
 #### Details
 
