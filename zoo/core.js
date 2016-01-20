@@ -30,18 +30,12 @@ function schedule (day) {
 };
 
 function animalCount (query) {
-  if ( query ) {
-    return zooData.animals.filter(function (animal) {
-      return animal.name === query;
-    }).map(function (animal) {
-      return animal.residents.length;
-    })[0];
-  };
-
-  return zooData.animals.reduce(function (result, species) {
+  animalsAndCounts = zooData.animals.reduce(function (result, species) {
     result[species.name] = species.residents.length;
     return result;
   }, {});
+
+  return query ? animalsAndCounts[query] : animalsAndCounts;
 };
 
 function animalMap (options) {
