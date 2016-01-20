@@ -20,12 +20,14 @@ function positiveRowsOnly (array) {
 
 function allSameVowels (array) {
   return array.filter(function (word) {
-    var vowels = word.replace(/[^aeiou]/ig,'').
-                      split('');
+    var vowels = ['a','e','i','o','u'];
+    var wordVowels = word.split('').filter(function (letter) {
+      return vowels.indexOf(letter) !== -1;
+    });
     
-    return vowels.filter(function (letter, _, letters) {
+    return wordVowels.filter(function (letter, _, letters) {
       return letter === letters[0];
-    }).length === vowels.length;
+    }).length === wordVowels.length;
   });
 };
 
