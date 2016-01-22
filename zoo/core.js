@@ -76,19 +76,13 @@ function animalMap (options) {
 function animalPopularity (rating) {
   var popularityObj = zooData.animals.reduce(function (result, species) {
     if ( result[species.popularity] ) {
-      result[species.popularity].push(species);
+      result[species.popularity].push(species.name);
     } else {
-      result[species.popularity] = [species];
+      result[species.popularity] = [species.name];
     };
 
     return result;
   }, {});
-
-  for ( var key in popularityObj ) {
-    popularityObj[key] = popularityObj[key].map(function (species) {
-      return species.name;
-    });
-  };
 
   return popularityObj[rating] || popularityObj;
 };
