@@ -1,14 +1,14 @@
 function onlyEven (array) {
   return array.filter(function (num) {
-    return !(num % 2);
+    return num % 2 === 0;
   });
-};
+}
 
 function onlyOneWord (array) {
   return array.filter(function (phrase) {
-    return phrase.split(' ').length <= 1
+    return phrase.split(' ').length <= 1;
   });
-};
+}
 
 function positiveRowsOnly (array) {
   return array.filter(function (row) {
@@ -16,7 +16,7 @@ function positiveRowsOnly (array) {
       return num > 0;
     }).length === row.length;
   });
-};
+}
 
 function allSameVowels (array) {
   return array.filter(function (word) {
@@ -29,7 +29,7 @@ function allSameVowels (array) {
       return letter === letters[0];
     }).length === wordVowels.length;
   });
-};
+}
 
 module.exports = {
   onlyEven: onlyEven,
