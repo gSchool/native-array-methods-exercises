@@ -115,7 +115,7 @@ Just like the other functions here, `.filter()` also takes additional arguments,
 
 ### .reduce()
 
-Reduce is an incredibly powerful method that allows us to combine all of the result in an array into a single result. There are a few different ways we can use it, so it's important to read the documentation careful!
+Reduce is an incredibly powerful method that allows us to combine all of the result in an array into a single result. There are a few different ways we can use it, so it's important to read the documentation carefully!
 
 [Check out the docs.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
 
