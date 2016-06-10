@@ -2,6 +2,10 @@
 
 Let's practice using `map`, `filter`, and `reduce`!
 
+* * *
+
+![map filter reduce in a tweet](./map-filter-reduce.png)
+
 #### Setup
 
 1. Install [mocha](https://mochajs.org/): `npm install -g mocha`
@@ -41,7 +45,7 @@ var users = [{ firstName: 'Bradley', lastName: 'Bouley', role: 'Full Stack Resid
              { firstName: 'Zach', lastName: 'Klabunde', role: 'Instructor'}];
 ```
 
-We're going to send out a message to all our users but just need their first name in order to personalize it. We can use `.map()` to quickly return an array of just their first names. 
+We're going to send out a message to all our users but just need their first name in order to personalize it. We can use `.map()` to quickly return an array of just their first names.
 
 ```javascript
 users.map(function (user) {
