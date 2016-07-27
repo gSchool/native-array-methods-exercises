@@ -1,0 +1,27 @@
+{
+  "name": "map-filter-reduce-exercises",
+  "version": "1.0.0",
+  "description": "Let's practice using `map`, `filter`, and `reduce`!",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node_modules/.bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gSchool/map-filter-reduce-exercises.git"
+  },
+  "author": "Wes Reid",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gSchool/map-filter-reduce-exercises/issues"
+  },
+  "homepage": "https://github.com/gSchool/map-filter-reduce-exercises#readme",
+  "devDependencies": {
+    "mocha": "^2.5.3"
+  },
+  "dependencies": {
+    "tap": "^6.2.0"
+  }
+}

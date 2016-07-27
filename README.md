@@ -8,8 +8,9 @@ Let's practice using `map`, `filter`, and `reduce`!
 
 #### Setup
 
-1. Install [mocha](https://mochajs.org/): `npm install -g mocha`
-1. To run all the tests: `mocha .`
+1. `npm install`
+1. Run each set of tests with `npm test ./[path]`
+  * For example: `npm test ./map`
 
 #### Details
 
