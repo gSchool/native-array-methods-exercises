@@ -37,13 +37,11 @@ Map works by returning a new array after a function has been applied to every si
 Imagine we have a group of users with multiple attributes.
 
 ```javascript
-var users = [{ firstName: 'Bradley', lastName: 'Bouley', role: 'Full Stack Resident' },
-             { firstName: 'Chloe', lastName: 'Alnaji', role: 'Full Stack Resident' },
-             { firstName: 'Jonathan', lastName: 'Baughn', role: 'Enterprise Instructor' },
-             { firstName: 'Michael', lastName: 'Herman', role: 'Lead Instructor' },
-             { firstName: 'Robert', lastName: 'Hajek', role: 'Full Stack Resident' },
-             { firstName: 'Wes', lastName: 'Reid', role: 'Instructor'},
-             { firstName: 'Zach', lastName: 'Klabunde', role: 'Instructor'}];
+var users = [{ firstName: 'Homer', lastName: 'Simpson' },
+             { firstName: 'Marge', lastName: 'Simpson' },
+             { firstName: 'Bart', lastName: 'Simpson' },
+             { firstName: 'Lisa', lastName: 'Simpson' },
+             { firstName: 'Maggie', lastName: 'Simpson' }];
 ```
 
 We're going to send out a message to all our users but just need their first name in order to personalize it. We can use `.map()` to quickly return an array of just their first names.
@@ -53,13 +51,13 @@ users.map(function (user) {
   return user.firstName;
 });
 
-// [ 'Bradley',
-//   'Chloe',
-//   'Jonathan',
-//   'Michael',
-//   'Robert',
-//   'Wes',
-//   'Zach' ]
+// [
+//   'Homer',
+//   'Marge',
+//   'Bart',
+//   'Lisa',
+//   'Maggie'
+// ]
 ```
 
 It's important to take note of the `return` inside of the anonymous function that is passed into `.map()`. Without that, our array of first names will not be quite what we expect.
@@ -69,13 +67,13 @@ users.map(function (user) {
   user.firstName;
 });
 
-// [ undefined,
+// [
 //   undefined,
 //   undefined,
 //   undefined,
 //   undefined,
-//   undefined,
-//   undefined ]
+//   undefined
+// ]
 ```
 
 Calling `return` is *crucial* when using all of these higher order functions. `.map()` also takes additional arguments, so make sure to check out the [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) Docs!
@@ -93,25 +91,24 @@ Filter allows us to remove elements that don't fit certain criteria. It's incred
 Imagine we have a group of users with multiple attributes.
 
 ```javascript
-var users = [{ firstName: 'Bradley', lastName: 'Bouley', role: 'Full Stack Resident' },
-             { firstName: 'Chloe', lastName: 'Alnaji', role: 'Full Stack Resident' },
-             { firstName: 'Jonathan', lastName: 'Baughn', role: 'Enterprise Instructor' },
-             { firstName: 'Michael', lastName: 'Herman', role: 'Lead Instructor' },
-             { firstName: 'Robert', lastName: 'Hajek', role: 'Full Stack Resident' },
-             { firstName: 'Wes', lastName: 'Reid', role: 'Instructor'},
-             { firstName: 'Zach', lastName: 'Klabunde', role: 'Instructor'}];
+var users = [{ character: 'Superman', hero: true },
+             { character: 'Sinestro', hero: false },
+             { character: 'Wonder Woman', hero: true },
+             { character: 'Lex Luthor', hero: false },
+             { character: 'Ares', hero: false },
+             { character: 'Green Lantern', hero: true }];
 ```
 
-We want to send out a message to just the Full Stack Residents, telling them what a wonderful job they're doing. We can use `.filter()` to return just those users who fit the right role.
+We want to send out a message to just the heroes, telling them what a wonderful job they're doing. We can use `.filter()` to return just those users who fit the right role.
 
 ```javascript
 users.filter(function (user) {
-  return user.role === 'Full Stack Resident';
+  return user.hero;
 });
 
-// [{ firstName: 'Bradley', lastName: 'Bouley', role: 'Full Stack Resident' },
-//  { firstName: 'Chloe', lastName: 'Alnaji', role: 'Full Stack Resident' },
-//  { firstName: 'Robert', lastName: 'Hajek', role: 'Full Stack Resident' }];
+// [{ character: 'Superman', hero: true },
+//  { character: 'Wonder Woman', hero: true },
+//  { character: 'Green Lantern', hero: true }]
 ```
 
 Just like the other functions here, `.filter()` also takes additional arguments, so make sure to check out the [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) Docs!
@@ -163,32 +160,24 @@ epic.reduce(function (previous, current) {
 Let's get back to our users and see how we can actually set the initial value for our reduce method!
 
 ```javascript
-var users = [{ firstName: 'Bradley', lastName: 'Bouley', role: 'Full Stack Resident' },
-             { firstName: 'Chloe', lastName: 'Alnaji', role: 'Full Stack Resident' },
-             { firstName: 'Jonathan', lastName: 'Baughn', role: 'Enterprise Instructor' },
-             { firstName: 'Michael', lastName: 'Herman', role: 'Lead Instructor' },
-             { firstName: 'Robert', lastName: 'Hajek', role: 'Full Stack Resident' },
-             { firstName: 'Wes', lastName: 'Reid', role: 'Instructor'},
-             { firstName: 'Zach', lastName: 'Klabunde', role: 'Instructor'}];
+var users = [{ fullName: 'George Washington', email: 'george@us.gov' },
+             { fullName: 'John Adams', email: 'john@us.gov' },
+             { fullName: 'Thomas Jefferson', email: 'thomas@us.gov' },
+             { fullName: 'James Madison', email: 'james@us.gov' }];
 ```
 
-We want to change up the structure of our users so that we can use the users' full name as the key and have their role as the value. Normally, this would take a lot of looping and initializing some variables. However, with reduce we can set an empty object as our starting point (i.e. previous) and do it all in a single go!
+We want to change up the structure of our users so that we can use the users' full name as the key and have their email as the value. Normally, this would take a lot of looping and initializing some variables. However, with reduce we can set an empty object as our starting point (i.e. previous) and do it all in a single go!
 
 ```javascript
 users.reduce(function (usersObj, user) {
-  var fullName = user.firstName + ' ' + user.lastName;
-  usersObj[fullName] = user.role;
-
+  usersObj[user.fullName] = user.email;
   return usersObj;
 }, {});
 
-// { 'Bradley Bouley': 'Full Stack Resident',
-//   'Chloe Alnaji': 'Full Stack Resident',
-//   'Jonathan Baughn': 'Enterprise Instructor',
-//   'Michael Herman': 'Lead Instructor',
-//   'Robert Hajek': 'Full Stack Resident',
-//   'Wes Reid': 'Instructor',
-//   'Zach Klabunde': 'Instructor' }
+// { 'George Washington': 'george@us.gov',
+//   'John Adams': 'john@us.gov',
+//   'Thomas Jefferson': 'thomas@us.gov',
+//   'James Madison': 'james@us.gov' }
 ```
 
 Notice the empty object as the second argument in reduce, as well as the fact that we're constantly returning our `usersObj` on each iteration.
