@@ -4,7 +4,16 @@ Let's practice using `map`, `filter`, and `reduce`!
 
 * * *
 
-![map filter reduce in a tweet](./map-filter-reduce.png)
+```js
+map([🌽, 🐮, 🐔], cook]
+=> [🍿, 🍔, 🍳]
+
+filter([🍿, 🍔, 🍳], isVegetarian]
+=> [🍿, 🍳]
+
+reduce([🍿, 🍳], eat)
+=> 💩
+```
 
 #### Setup
 
