@@ -1,17 +1,26 @@
 function onlyEven (array) {
-  // your code here
+  return array.filter((item) => (item % 2 === 0));
 };
 
 function onlyOneWord (array) {
-  // your code here
+  return array.filter((item) => (item.match(/[' ']/) != ' '));
 };
 
 function positiveRowsOnly (array) {
-  // your code here
+  let newRay = [];
+  let itemLength;
+  array.map((bigItem) => {
+    itemLength = bigItem.length;
+    newRay.push(bigItem.filter((item) => (item >= 0)));
+  });
+  return newRay.filter((item) => item.length === itemLength);
 };
 
 function allSameVowels (array) {
-  // your code here
+  var validIndex = [];
+  var vowelRay = array.map((item) => (item.match(/[a|e|i|o|u]/gi)).join(''));
+  vowelRay.forEach((item) => (validIndex.push(item.split('').sort().join() === item.split('').sort().reverse().join())));
+  return array.filter((item, index) => (validIndex[index]));
 };
 
 module.exports = {
