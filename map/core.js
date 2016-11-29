@@ -1,17 +1,21 @@
 function multiplyBy10 (array) {
- // your code here
+  return array.map((item) => (item * 10));
 };
 
 function shiftRight (array) {
- // your code here
+  return array.map((item, index, ray) => (ray[(index > 0) ? index - 1 : (ray.length - 1)]));
 };
 
 function onlyVowels (array) {
- // your code here
+  return array.map((item) => (item.match(/[a|e|i|o|u]/gi)).join(''));
 };
 
 function doubleMatrix (array) {
- // your code here
+  let newRay = [];
+  array.map((bigItem) => {
+    newRay.push(bigItem.map((item) => (item * 2)));
+  });
+  return newRay;
 };
 
 module.exports = {
