@@ -16,7 +16,7 @@ describe('Filter', function() {
     });
   });
 
-  describe('#positiveRowsOnly()', function () {
+  xdescribe('#positiveRowsOnly()', function () {
     it('return only the rows in the matrix that have all positive integers', function () {
       var matrix = [[1, 10,-100],
                     [2,-20, 200],

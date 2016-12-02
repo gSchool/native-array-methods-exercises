@@ -1,17 +1,25 @@
 function onlyEven (array) {
-  // your code here
+  return array.filter(function(index){
+    return index % 2===0;
+  });
 };
 
 function onlyOneWord (array) {
-  // your code here
+  return array.filter(function(index){
+    return (!index.includes(' '));
+  });
 };
 
 function positiveRowsOnly (array) {
-  // your code here
+  return array.filter(function(element, index, array){
+    // return element.filter(function(element,index,array){
+    //   return element >= 0;
+    // });
+  });
 };
 
 function allSameVowels (array) {
-  // your code here
+  var vowels = ['a','e','i','o','u'
 };
 
 module.exports = {
