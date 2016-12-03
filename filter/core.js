@@ -1,8 +1,6 @@
 let onlyEven = (array) => (array.filter((item) => (item % 2 === 0)));
 
-
 let onlyOneWord = (array) => (array.filter((item) => (item.match(/[' ']/) != ' ')));
-
 
 let positiveRowsOnly = (array) =>{
   let newRay = [];
