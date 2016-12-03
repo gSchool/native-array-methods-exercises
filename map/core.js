@@ -1,16 +1,10 @@
-function multiplyBy10 (array) {
-  return array.map((item) => (item * 10));
-};
+let multiplyBy10 = (array) =>(array.map((item) => (item * 10)));
 
-function shiftRight (array) {
-  return array.map((item, index, ray) => (ray[(index > 0) ? index - 1 : (ray.length - 1)]));
-};
+let shiftRight = (array) =>(array.map((item,i,ray) => (ray[(i > 0) ? i - 1 : (ray.length - 1)])));
 
-function onlyVowels (array) {
-  return array.map((item) => (item.match(/[a|e|i|o|u]/gi)).join(''));
-};
+let onlyVowels = (array) =>(array.map((item) => (item.match(/[a|e|i|o|u]/gi)).join('')));
 
-function doubleMatrix (array) {
+let doubleMatrix = (array) =>{
   let newRay = [];
   array.map((bigItem) => (newRay.push(bigItem.map((item) => (item * 2)))));
   return newRay;
