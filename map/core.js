@@ -6,19 +6,33 @@ function multiplyBy10 (array) {
  return mapped;
 };
 
-function shiftRight (array) {
-  shiftedArray = [];
-  shiftedArray = array.map(function(element){
-    var long = array.length
-    console.log (array[array.indexOf(element)+1])
-    if(array.indexOf(element)===array.length-1){
-      array[0]= element;
-    }else{
-      array[array.indexOf(element)+1]= element;
-    }
-  })
-  return shiftedArray;
-};
+// ************** Map USED *********************
+
+function shiftRight(array){
+  var intermediateArray = [];
+  array.map(function(element){
+      if(array.indexOf(element)!=array.length-1){
+        intermediateArray.push(element)
+      }else{
+        intermediateArray.unshift(element)
+      }
+    })
+    return intermediateArray;
+  }
+
+// ************** Map NOT USED *********************
+
+// function shiftRight(array){
+//   shiftedRight = [];
+//   var popped = array.pop();
+//   console.log(array)
+//   shiftedRight.push(popped);
+//   array.forEach(function(element){
+//     shiftedRight.push(element)
+//   })
+//   return shiftedRight;
+// }
+
 
 function onlyVowels (array) {
   var mapped = [];
