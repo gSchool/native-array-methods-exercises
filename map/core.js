@@ -12,9 +12,7 @@ function onlyVowels (array) {
 
 function doubleMatrix (array) {
   let newRay = [];
-  array.map((bigItem) => {
-    newRay.push(bigItem.map((item) => (item * 2)));
-  });
+  array.map((bigItem) => (newRay.push(bigItem.map((item) => (item * 2)))));
   return newRay;
 };
 
