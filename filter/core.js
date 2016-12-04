@@ -11,15 +11,29 @@ function onlyOneWord (array) {
 };
 
 function positiveRowsOnly (array) {
-  return array.filter(function(element, index, array){
-    // return element.filter(function(element,index,array){
-    //   return element >= 0;
-    // });
+  return array.filter(function(element){
+    return Math.min(...element)>=0;
+    //probably not done as intended, but pretty proud of finding that workaround!
   });
 };
 
 function allSameVowels (array) {
-  var vowels = ['a','e','i','o','u'
+  return array.filter(function(element){
+    var subArray = element.split('');
+    var wordVowels = [];
+    var vowels = ['a','e','i','o','u'];
+    var boo = true;
+    for (var i = 0; i < subArray.length; i++) {
+      if (vowels.includes(subArray[i])&&wordVowels.length<1){
+        wordVowels.push(subArray[i]);
+        console.log(wordVowels);
+      }
+      else if(vowels.includes(subArray[i])&&(wordVowels[0]!==subArray[i])){
+        boo = false;
+      }
+    }
+    return boo;
+  });
 };
 
 module.exports = {

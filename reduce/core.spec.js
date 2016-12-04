@@ -17,7 +17,7 @@ describe('Reduce', function() {
       assert.equal(720, core.productAll(matrix));
     });
   });
-  
+
   describe('#objectify()', function () {
     it('turns an array of arrays into an object', function () {
       var matrix = [['Thundercats', '80s'],
