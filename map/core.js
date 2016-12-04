@@ -60,7 +60,6 @@ function doubleMatrix (array) {
     return matrixElements;
   })
   return doubledMatrixArray;
- // your code here
 };
 
 module.exports = {
