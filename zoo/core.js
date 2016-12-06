@@ -25,7 +25,6 @@ function schedule(dayName) {
     const hoursKeys = Object.keys(hours);
     if (arguments.length === 0) {
         const readableObject = hoursKeys.reduce((acc, element) => {
-
             const insertObject = returnReadableObject(hours, element);
             const accObject = Object.assign(acc, insertObject);
             return accObject;
@@ -58,8 +57,26 @@ function schedule(dayName) {
 
 
 function animalCount(species) {
-    // your code here
+    if (arguments.length === 0) {
+        const animalSummary = data.animals.reduce((acc, animal) => {
+            const insertObject = {
+                [animal.name]: animal.residents.length
+            };
+            const returnObject = Object.assign(acc, insertObject);
+            return returnObject;
+        }, {});
+        return animalSummary;
+    } else {
+        const animalCount = data.animals.filter(animal => {
+            if (animal.name === species) {
+                const count = animal.residents.length;
+                return (count);
+            }
+        });
+        return animalCount[0].residents.length;
+    }
 };
+
 
 function animalMap(options) {
     // your code here
