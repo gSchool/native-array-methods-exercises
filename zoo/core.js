@@ -1,26 +1,61 @@
 const data = require("./data.js");
 
 function entryCalculator(entrants) {
-    const prices = data.prices;
-    console.log(entrants);
-    const entrantsMatrix = Object.entries(entrants);
-    // const entryMoney = entrantsMatrix.reduce((first, second) => {
-    //   const firstType = Object.keys(first);
-    //   const firstQty = Object.values(first);
-    //   console.log(`${firstType} with quantity ${firstQty}`);
-    // });
-    //
-    // return entryMoney;
+    if ((arguments.length > 0) && (Object.keys(entrants).length > 0)) {
+        const prices = data.prices;
+        const priceArray = Object.keys(prices);
+        const revenue = priceArray.reduce((acc, thisItem) => {
+            if (entrants.hasOwnProperty(thisItem)) {
+                return (acc + (prices[thisItem] * entrants[thisItem]));
+            } else {
+                return acc;
+            }
+        }, 0);
+        return revenue;
+    } else {
+        const revenue = 0;
+        return revenue;
+    }
+
 };
-entryCalculator({
-    'Adult': 2,
-    'Child': 3,
-    'Senior': 1
-});
+
 
 function schedule(dayName) {
-    // your code here
+    const hours = data.hours;
+    const hoursKeys = Object.keys(hours);
+    if (arguments.length === 0) {
+        const readableObject = hoursKeys.reduce((acc, element) => {
+
+            const insertObject = returnReadableObject(hours, element);
+            const accObject = Object.assign(acc, insertObject);
+            return accObject;
+        }, {});
+        return readableObject;
+
+    } else if (arguments.length === 1) {
+        const readableObject = returnReadableObject(hours, dayName);
+        return readableObject;
+    }
+
+    //Private interior function to return object in correct format
+    function returnReadableObject(hours, element) {
+        const open = hours[element].open;
+        if (open !== 0) {
+            const close = hours[element].close - 12;
+            const readableValue = `Open from ${open}am until ${close}pm`;
+            const insertObject = {
+                [element]: readableValue
+            };
+            return insertObject;
+        } else {
+            return {
+                [element]: "CLOSED"
+            };
+        }
+    }
+
 };
+
 
 function animalCount(species) {
     // your code here
