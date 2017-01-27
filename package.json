@@ -6,7 +6,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "node_modules/.bin/mocha"
+    "test": "./node_modules/.bin/mocha --recursive --reporter list",
+    "test-all": "./node_modules/.bin/mocha --recursive --reporter list ."
   },
   "repository": {
     "type": "git",
