@@ -4,37 +4,47 @@ var assert = require('assert'),
 describe('Reduce', function() {
   describe('#sum()', function () {
     it('sum all the numbers in the array', function () {
-      var array = [10,15,20,25,30,35];
-      assert.equal(135, core.sum(array));
+      var input = [ 10, 15, 20, 25, 30, 35 ];
+      var expected = 135
+      var actual = core.sum(input)
+
+      assert.equal(actual, expected);
     });
   });
 
   describe('#productAll()', function () {
     it('return the product of all items in the matrix', function () {
-      var matrix = [[1, 2, 3],
-                    [4, 5],
-                    [6]];
-      assert.equal(720, core.productAll(matrix));
+      var input = [[ 1, 2, 3 ],
+                   [ 4, 5 ],
+                   [ 6 ]];
+      var expected = 720
+      var actual = core.productAll(input)
+
+      assert.equal(actual, expected);
     });
   });
-  
+
   describe('#objectify()', function () {
     it('turns an array of arrays into an object', function () {
-      var matrix = [['Thundercats', '80s'],
-                    ['The Powerpuff Girls', '90s'],
-                    ['Sealab 2021', '00s']];
-      var result = { 'Thundercats': '80s',
-                     'The Powerpuff Girls': '90s',
-                     'Sealab 2021': '00s' };
-      assert.deepEqual(result, core.objectify(matrix));
+      var input = [[ 'Thundercats', '80s' ],
+                   [ 'The Powerpuff Girls', '90s' ],
+                   [ 'Sealab 2021', '00s' ]];
+      var expected = { 'Thundercats': '80s',
+                       'The Powerpuff Girls': '90s',
+                       'Sealab 2021': '00s' };
+      var actual = core.objectify(input)
+
+      assert.equal(actual, expected);
     });
   });
 
   describe('#luckyNumbers()', function () {
     it('return a fortune like sentence with lucky numbers', function () {
-      var array  = [30, 48, 11, 5, 32];
-      var result = 'Your lucky numbers are: 30, 48, 11, 5, and 32';
-      assert.equal(result, core.luckyNumbers(array));
+      var input  = [ 30, 48, 11, 5, 32 ];
+      var expected = 'Your lucky numbers are: 30, 48, 11, 5, and 32';
+      var actual = core.luckyNumbers(input)
+
+      assert.equal(actual, expected);
     });
   });
 });
