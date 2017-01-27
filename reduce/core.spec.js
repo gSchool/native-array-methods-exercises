@@ -34,7 +34,7 @@ describe('Reduce', function() {
                        'Sealab 2021': '00s' };
       var actual = core.objectify(input)
 
-      assert.equal(actual, expected);
+      assert.deepEqual(actual, expected);
     });
   });
 

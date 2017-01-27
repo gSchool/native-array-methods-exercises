@@ -26,6 +26,7 @@ reduce([🍿, 🍳], eat)
 1. `npm install`
 1. Run each set of tests with `npm test ./[path]`
   * For example: `npm test ./map`
+1. Run all the tests with `npm test ./**/*.spec.js`
 
 #### Details
 
