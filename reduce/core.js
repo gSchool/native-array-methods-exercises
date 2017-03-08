@@ -1,18 +1,17 @@
-function sum (array) {
-  // your code here
+let sum = (array) => (array.reduce((prev, cur) => (prev + cur)));
+
+let productAll = (array) => {
+  let newRay = [];
+  array.forEach((item) => (newRay.push(item.reduce((prev, cur) => (prev * cur ),1))));
+  return newRay.reduce((prev, cur) => (prev * cur ),1);
 };
 
-function productAll (array) {
-  // your code here
-};
+let objectify = (array) => (array.reduce((showObj, show) => {
+    showObj[show[0]] = show[1];
+    return showObj;
+  }, {}));
 
-function objectify (array) {
-  // your code here
-};
-
-function luckyNumbers (array) {
-  // your code here
-};
+ let luckyNumbers = (array)=>(array.reduce((prev,cur,i,ray) => (`${prev}${i + 1 === ray.length ? ('and ' + cur).toString() :(cur + ', ').toString()}`),`Your lucky numbers are: `));
 
 module.exports = {
   sum: sum,

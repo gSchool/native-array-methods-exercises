@@ -1,17 +1,13 @@
-function multiplyBy10 (array) {
- // your code here
-};
+let multiplyBy10 = (array) =>(array.map((item) => (item * 10)));
 
-function shiftRight (array) {
- // your code here
-};
+let shiftRight = (array) =>(array.map((item,i,ray) => (ray[(i > 0) ? i - 1 : (ray.length - 1)])));
 
-function onlyVowels (array) {
- // your code here
-};
+let onlyVowels = (array) =>(array.map((item) => (item.match(/[a|e|i|o|u]/gi)).join('')));
 
-function doubleMatrix (array) {
- // your code here
+let doubleMatrix = (array) =>{
+  let newRay = [];
+  array.map((bigItem) => (newRay.push(bigItem.map((item) => (item * 2)))));
+  return newRay;
 };
 
 module.exports = {
