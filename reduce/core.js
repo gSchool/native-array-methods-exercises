@@ -39,9 +39,9 @@ function productAll (array) {
 console.log(productAll(input1));
 
 
-var input2 = [[ 'Thundercats', '80s' ],
-             [ 'The Powerpuff Girls', '90s' ],
-             [ 'Sealab 2021', '00s' ]];
+var input2 = [[ 'Thundercats', '80s' ], //row
+             [ 'The Powerpuff Girls', '90s' ], //row
+             [ 'Sealab 2021', '00s' ]]; //row
 // var expected = { 'Thundercats': '80s',
 //                  'The Powerpuff Girls': '90s',
 //                  'Sealab 2021': '00s' };
@@ -54,18 +54,22 @@ function objectify (array) {
   //create cartoonObject
   //return cartoonObject starting variable
   return array.reduce(function(cartoonObject, row){
-    console.log('row ', row[0]);
-    console.log('row2 ', row[1]);
+    // console.log(row);
+    // console.log('row ', row[0]);
+    // console.log('row2 ', row[1]);
+    //build up cartoonObject object[key]
     cartoonObject[row[0]] = row[1];
-    console.log('cartoonObject ', cartoonObject);
+    // console.log('cartoonObject ', cartoonObject);
 
-    console.log(cartoonObject);
+    // console.log('cartoon Object ', cartoonObject);
     return cartoonObject;
   },
   {});
 }
 
-objectify(input2);
+//to get cartoonObject without console logging before return
+console.log(objectify(input2));
+
 
 function luckyNumbers (array) {
   // your code here
