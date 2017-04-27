@@ -39,7 +39,7 @@ function productAll (array) {
 console.log(productAll(input1));
 
 
-var input2 = [[ 'Thundercats', '80s' ], //row
+var cartoonsObject = [[ 'Thundercats', '80s' ], //row
              [ 'The Powerpuff Girls', '90s' ], //row
              [ 'Sealab 2021', '00s' ]]; //row
 // var expected = { 'Thundercats': '80s',
@@ -52,28 +52,43 @@ function objectify (array) {
   //reach row is the element being passed in which is an array
   //console log to get the keys and values to populate our cartoonObject
   //create cartoonObject
-  //return cartoonObject starting variable
-  return array.reduce(function(cartoonObject, row){
+  //return cartoonObject starting object/array/value
+  return array.reduce(function(newCartoonObject, cartoonArray){
+    // console.log('array ', array);
     // console.log(row);
     // console.log('row ', row[0]);
     // console.log('row2 ', row[1]);
     //build up cartoonObject object[key]
-    cartoonObject[row[0]] = row[1];
+    newCartoonObject[cartoonArray[0]] = cartoonArray[1];
     // console.log('cartoonObject ', cartoonObject);
 
     // console.log('cartoon Object ', cartoonObject);
-    return cartoonObject;
+    return newCartoonObject;
   },
-  {});
+  {}); //empty object container for newCartoonObject
 }
 
 //to get cartoonObject without console logging before return
-console.log(objectify(input2));
+console.log(objectify(cartoonsObject));
 
+var input3  = [ 30, 48, 11, 5, 32 ];
+// var expected = 'Your lucky numbers are: 30, 48, 11, 5, and 32';
 
+//define fortune string which is starting value 'Your lucky numbers are: '
 function luckyNumbers (array) {
   // your code here
-};
+  return array.reduce(function(previous, current, index, array) {
+    // console.log('Your lucky numbers are: ' + element + element;
+    if ( index === array.length - 1){
+      console.log(previous + "and " + current);
+      return previous + "and " + current;
+    }
+    return previous + current + ", ";
+    console.log(previous + current);
+  }, "Your lucky numbers are ");
+}
+
+luckyNumbers(input3);
 
 module.exports = {
   sum: sum,
