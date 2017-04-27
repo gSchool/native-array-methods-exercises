@@ -50,14 +50,19 @@ function objectify (array) {
   // your code here
   //cartoonObject is our accumulator object, so also need {}
   //reach row is the element being passed in which is an array
+  //console log to get the keys and values to populate our cartoonObject
+  //create cartoonObject
+  //return cartoonObject starting variable
   return array.reduce(function(cartoonObject, row){
-
     console.log('row ', row[0]);
-    // console.log(newObject);
+    console.log('row2 ', row[1]);
+    cartoonObject[row[0]] = row[1];
+    console.log('cartoonObject ', cartoonObject);
 
     console.log(cartoonObject);
     return cartoonObject;
-  }, {});
+  },
+  {});
 }
 
 objectify(input2);
